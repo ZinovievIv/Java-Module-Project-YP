@@ -13,6 +13,7 @@ public class Main {
             if (quantityPeople > 1)
                 break;
         }
+
         System.out.println("Введите наименование товара:");
         Scanner product = new Scanner(System.in);
         String inproduct = product.next();
