@@ -12,11 +12,15 @@ public class Main {
             System.out.println("Число должно быть больше 1, введите еще раз:");
             quantityPeople = inPeople.nextInt();
             if (quantityPeople > 1)
-                break;
+                Calculate.calculater(summa, quantityPeople);
         }
-        System.out.println("Введите сумму счета");
-        double summa = chek.nextInt();
-        double resultat = Calculate.calculater(summa, quantityPeople);
-        System.out.println("Итого на человека:" + resultat);
+
+    }
+
+    class Calculate {
+        Calculate calculater = new Calculate();
+        public static double calculater(double a, double b){
+            return a/b;
+        }
     }
 }
