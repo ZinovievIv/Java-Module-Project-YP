@@ -3,31 +3,47 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner inPeople = new Scanner(System.in);
+        String products = "";
+        String product = "";
+        float inprices = 0;
+        float inprice = 0;
+
+        products = products + product;
+        inprices = inprices + inprice;
+
+
+        Scanner scanner = new Scanner(System.in);
         System.out.println("На сколько человек необходимо разделить счет?");
-        int quantityPeople = inPeople.nextInt();
-        System.out.println("Вы ввели - " + quantityPeople);
+        int quantityPeople = scanner.nextInt();
         while (quantityPeople <= 1) {
             System.out.println("Число должно быть больше 1, введите еще раз:");
-            quantityPeople = inPeople.nextInt();
+            quantityPeople = scanner.nextInt();
             if (quantityPeople > 1)
                 break;
         }
 
-        System.out.println("Введите наименование товара:");
-        Scanner product = new Scanner(System.in);
-        String inproduct = product.next();
-        System.out.println("Введите сумму товара");
-        Scanner price = new Scanner(System.in);
-        double inprice = price.nextDouble();
-
-    }
-
-    class Calculate {
-        Calculate calculater = new Calculate();
-
-        public double calculater(double a, double b) {
-            return a / b;
+        while (true) {
+            System.out.println("Введите наименование товара:");
+            product = scanner.next();
+            if (product.equalsIgnoreCase("Завершить")) {
+                break;
+            } else {
+                System.out.println("Введите сумму товара (рубли.копейки):");
+                inprice = scanner.nextFloat();
+                System.out.println("Товар успешно добавлен");
+                products = products + "\n" + product;
+                inprices = inprices + inprice;
+            }
         }
+        System.out.println("Добавленные товары:" + products);
+        System.out.println(inprices);
+    }
+}
+
+class Calculator {
+
+    public static int calculate (int a, int b) {
+        int i = a / b ;
+        return i;
     }
 }
