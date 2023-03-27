@@ -6,7 +6,6 @@ public class Main {
         Scanner inPeople = new Scanner(System.in);
         System.out.println("На сколько человек необходимо разделить счет?");
         int quantityPeople = inPeople.nextInt();
-        System.out.println("Вы ввели - " + quantityPeople);
         while (quantityPeople <= 1) {
             System.out.println("Число должно быть больше 1, введите еще раз:");
             quantityPeople = inPeople.nextInt();
@@ -14,20 +13,24 @@ public class Main {
                 break;
         }
 
-        System.out.println("Введите наименование товара:");
         Scanner product = new Scanner(System.in);
-        String inproduct = product.next();
-        System.out.println("Введите сумму товара");
         Scanner price = new Scanner(System.in);
-        double inprice = price.nextDouble();
 
-    }
+        String products = products + " " + product;
 
-    class Calculate {
-        Calculate calculater = new Calculate();
-
-        public double calculater(double a, double b) {
-            return a / b;
+        while (true) {
+            System.out.println("Введите наименование товара:");
+            String inproduct = product.next();
+            if (inproduct.equalsIgnoreCase("Завершить")) {
+                break;
+            } else {
+                System.out.println("Введите сумму товара (рубли.копейки):");
+                double inprice = price.nextFloat();
+                String line = line + inproduct;
+                System.out.println("Товар успешно добавлен");
+                System.out.println(inproduct);
+            }
         }
+
     }
 }
