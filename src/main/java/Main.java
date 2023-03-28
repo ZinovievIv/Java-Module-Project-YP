@@ -36,14 +36,27 @@ public class Main {
             }
         }
         System.out.println("Добавленные товары:" + products);
-        System.out.println(inprices);
+        System.out.println("\nОбщий счет: " + inprices + "рубля");
+        System.out.println("Выходит по " + Ending.rounding(Calculator.calculate(inprices, quantityPeople)) + " рубля" +  " на человека.");
+
+
     }
 }
 
 class Calculator {
-
-    public static int calculate (int a, int b) {
-        int i = a / b ;
+    public static float calculate(float a, float b) {
+        float i = (a / b);
+        String.format("%2f", i);
         return i;
     }
+}
+
+
+class Ending {
+
+    public static double rounding(double i) {
+        double c = Math.floor(i);
+        return c;
+    }
+}
 }
