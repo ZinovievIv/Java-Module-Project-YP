@@ -8,19 +8,18 @@ public class Main {
         double inprices = 0;
         double inprice = 0;
 
+        Checking quantityPeople = new Checking();
+
         products = products + product;
         inprices = inprices + inprice;
 
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("На сколько человек необходимо разделить счет?");
-        int quantityPeople = scanner.nextInt();
-        while (quantityPeople <= 1) {
-            System.out.println("Число должно быть больше 1, введите еще раз:");
-            quantityPeople = scanner.nextInt();
-            if (quantityPeople > 1)
-                break;
-        }
+
+
+        int i = quantityPeople.afterCheck();
+
 
         while (true) {
             System.out.println("Введите наименование товара или введите 'Завершить' для подсчета:");
@@ -36,11 +35,12 @@ public class Main {
             }
         }
         System.out.println("Добавленные товары:" + products);
-        System.out.println("Выходит по " + Ending.rounding(Calculator.calculate(inprices, quantityPeople)) + " рубля" +  " на человека.");
+        System.out.println("Выходит по " + Ending.rounding(Calculator.calculate(inprices, i)) + " рубля" +  " на человека.");
 
 
     }
 }
+
 
 class Calculator {
     public static double calculate(double a, double b) {
