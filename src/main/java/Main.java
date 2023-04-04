@@ -29,13 +29,15 @@ public class Main {
                 System.out.println("Введите сумму товара (рубли,копейки):");
                 inprice = checkQuantityPeople.finishCheckPriceProduct();
                 System.out.println("Товар успешно добавлен");
-                products = products + "\n" + product;
+                products = products + "\n - " + product;
                 inprices = inprices + inprice;
             }
         }
-        System.out.println("Добавленные товары:" + products + "\nНа сумму: " + inprices);
-        System.out.print("Выходит по " + (Format.format(Calculator.calculate(inprices, quantityPeople))) + Money.money(inprice) +  " на человека.");
-        System.out.print(Money.money(33));
+        System.out.println("Добавленные товары:" + products + "\nНа сумму: "
+                + Format.format(inprices) + Money.money(inprices));
+        System.out.print("Выходит по " + (Format.format(Calculator.calculate(inprices, quantityPeople)))
+                + (Money.money(Calculator.calculate(inprices, quantityPeople))) +  " на человека.");
+
 
 
     }
@@ -59,28 +61,31 @@ class Format {
 
 class Ending {
 
-    public static double rounding(String i) {
-        double c = Double.parseDouble(i);
-        double b =Math.floor(c);
+    public static double rounding(double i) {
+        double b = Math.floor(i);
         return b;
     }
 }
 
 class Money {
 
-    public static String money(double money) {
-        String i = "";
-        double x = money % 100;
-        double y = money % 10;
-        if (x == 1 || y == 1) {
-            i = " рубль";
-        } else if (5 > x && x > 1 || y > 1 && y < 5) {
-            i = " рубля";
-        } else if (20 > x && x > 10 || y > 5 && y < 10) {
-            i = " рублей";
-        } else {
-            i = " рублей";
+    public static String money(double i) {
+        int money = (int)(i);
+        String s = "";
+        int LastNumber = money % 100 / 10;
+        if (LastNumber == 1) {
+            return " рублей";
         }
-            return i;
+        switch (money % 10) {
+            case 1:
+                return " рубль";
+            case 2:
+            case 3:
+            case 4:
+                return " рубля";
+            default:
+                return " рублей";
+        }
+
     }
 }
