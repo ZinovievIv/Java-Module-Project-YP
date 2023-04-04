@@ -6,6 +6,8 @@ public class Checking {
     double priceProduct;
 
     public int afterCheck() {
+        //Окончательная проверка по двум методам,
+        // если обе проверки возвращают true, то возвращаем проверенное значение
         while (true) {
             if (checkInQuantityPeople() & moreOne()) {
                 return inQuantityPeople;
@@ -17,7 +19,7 @@ public class Checking {
 
 
     public boolean checkInQuantityPeople() {
-
+        //Метод для проверки вводимого количества человек на int
         while (true) {
             if (!scanner.hasNextInt()) {
                 scanner.nextLine();
@@ -30,6 +32,7 @@ public class Checking {
     }
 
     public boolean moreOne() {
+        //Метод для проверки вводимого числа, чтобы оно было больше 1
         while (true) {
             if (inQuantityPeople > 1) {
                 return true;
@@ -42,7 +45,8 @@ public class Checking {
 
 
     public double finishCheckPriceProduct () {
-
+        //Окончательная проверка вводимой суммы продукта по двум методам
+        //Если оба метода возвращают true, то отдаем проверенное значение
         while (true) {
             if (checkPriceProduct() & moreZero()) {
                 return priceProduct;
@@ -54,7 +58,7 @@ public class Checking {
 
 
     public boolean checkPriceProduct() {
-
+        //Метод для проверки вводимого значение цены продукта
         while (true) {
             if (!scanner.hasNextDouble()) {
                 scanner.nextLine();
@@ -67,6 +71,7 @@ public class Checking {
     }
 
     public boolean moreZero() {
+        //Метод для проверки вводимого значения продукта, чтобы оно было больше 0
         while (true) {
             if(priceProduct > 0) {
                 return true;

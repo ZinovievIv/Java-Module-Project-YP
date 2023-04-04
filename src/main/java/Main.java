@@ -44,14 +44,14 @@ public class Main {
 }
 
 
-class Calculator {
+class Calculator { //Производим вычисление суммы на человека
     public static double calculate(double a, double b) {
         double i = (a / b);
         return i;
     }
 }
 
-class Format {
+class Format { //Округляем значение до 2-х знаков после запятой
 
     public static String format (double i) {
         String s = String.format("%.2f", i);
@@ -59,15 +59,7 @@ class Format {
     }
 }
 
-class Ending {
-
-    public static double rounding(double i) {
-        double b = Math.floor(i);
-        return b;
-    }
-}
-
-class Money {
+class Money { //Вычисляем по модулю окончание для "рублей"
 
     public static String money(double i) {
         int money = (int)(i);
